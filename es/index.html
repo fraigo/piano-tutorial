@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Piano Tutorial</title>
+    <style>
+    body, td, input, select {
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:18px;
+        line-height: 24px;
+    }
+
+    </style>
+</head>
+<body>
+    
+    <main id="app">
+        <h1>Tutorial de piano en una semana</h1>
+
+        <h2>Contenido</h2>
+
+        <ol>
+            <li>Introducción</li>
+            <li>Dia 1: Manos a la obra</li>
+            <li>Dia 2: Tu primera melodía</li>
+            <li>Dia 3: Lectura musical basica</li>
+            <li>Dia 4: Dos manos</li>
+            <li>Dia 5: Acompañamiento musical</li>
+            <li>Dia 6: Practica integral</li>
+            <li>Dia 7: Tu primera presentacion musical</li>
+        </ol>
+
+        <section>
+            <h2>Introducción</h2>
+            <content>
+                <p>
+                    El tocar un instrumento musical como el piano puede llegar a parecer bastante dificil. 
+                    Vemos a los maestros de este instrumento tocar de manera natural complejas piezas y sin errores, 
+                    y pensamos cómo podriamos lograr algo semejante nosotros, simples mortales.
+                    Si bien el llegar a dominar este instrumento a ese nivel lleva una enorme cantidad 
+                    de horas de practica diaria, es posible llegar a tocar muy bien dedicando un tiempo razonable 
+                    y solo unas cuantas lecciones escenciales para comenzar a tocar.
+                </p>
+                <p>
+                    En este libro, podras lograr aprender lo suficiente para que en una semana puedas dominar lo escencial para:
+                    <ul>
+                        <li>Ubicar las notas rapidamente en el teclado</li>
+                        <li>Algunas tecnicas sencillas de postura de manos</li>
+                        <li>Aprender los elementos mas importantes de la teoria musical</li>
+                        <li>Realizar algunos acompañamientos sencillos a tus melodías</li>
+                        <li>Leer y tocar melodias desde musica escrita</li>
+                    </ul>
+                    Para lograrlo, se necesitará que dediques por lo menos una hora diaria a este curso: 
+                    media hora para adquirir conocimiento y otra media hora para realizar las practicas. 
+                    Si te concentras y dedicas bien tu tiempo, puede que necesites menos de eso.
+                </p>
+                <p>
+                    Este libro esta organizado para que cada dia puedas lograr algo concreto. 
+                    Si sigues la programacion de este modo, lograras tu cometido en una semana.
+                    Naturalmente, puedes adaptar el tiempo que le dediques, pero lo mas importante es la constancia en la práctica.
+                    El cuerpo humano tiene una capacidad maravillosa de adaptarse acciones constantes y repititivas que no podras creer lo que lograras en tan poco tiempo.
+                </p>
+                <p>
+                    El conocimiento y tecnicas que comparto en esta publicación estan basados en años de experiencia
+                    enseñando a niños, jovenes y adultos. La mayoria de ellos tuvieron mucho éxito y lograron aprender, 
+                    sin embargo, algunos de ellos no lo lograron, y no era por alguna incapacidad, 
+                    sino simplemente por no dedicar un tiempo diario a la practica. Vuelvo a recalcar que es lo más importante.
+                </p>
+                <p>
+                    Finalmente, es claro que lo enseñado en este libro solo constituye una parte basica 
+                    de todo lo que podria aprenderse para lograr ser un maestro del piano. 
+                    Luego de que termines este curso y logres tocar tus primeras melodias, 
+                    queda en tí decidir seguir con tu aprendizaje y llevarlo al siguiente nivel. 
+                    Puedes optar por tomar clases privadas, estudiar formalmente, 
+                    o simplemente recurrir a nuevas lecciones que puedes encontrar online. 
+                    Todo depende de la dedicacion que desees darle. Te deseo suerte en este camino. Ahora, manos a la obra!
+                </p>
+        
+            </content>
+        </section>
+
+        <section>
+            <h2>Dia 1: Manos a la obra</h2>
+            <content>
+                <p>Objetivo: conocer el instrumento y ubicar rapidamente las notas del teclado.
+                </p>
+            </content>
+            <h3>El Piano</h3>
+            <content>
+                <p>
+                    El piano es un instrumento relativamente moderno. 
+                    Es un instrumento de cuerda, pero a diferencia de otros como la guitarra o el violin, 
+                    las cuerdas vibran por percusión. 
+                    Mediante el teclado se transmite mecanicamente un golpe a las cuerdas adecuadas para que resonen.
+                    Sus principales antecesores fueron los órganos de tubos, 
+                    pasando por los instrumentos de cuerda punteada como el clavicordio o el clavecín, 
+                    de los cuales heredo la estructura del teclado actual.
+                </p>
+                <h3>El teclado</h3>
+                <p>
+                    El teclado de un piano está conformado por un patron de teclas blancas y negras que se repiten una o mas veces.
+                    A este patron repetitivo le llamaremos octava, y contiene todas las notas de una escala musical.
+                    Dicho patron contiene siete teclas blancas y 5 teclas negras: un grupo de dos y otro de tres teclas negras.
+                </p>
+                <piano :length="36">
+
+                </piano>
+                <i>
+                    Pregunta 1: ¿Cuantas octavas tiene este teclado?
+                </i>
+                <piano :length="25">
+                    
+                </piano>
+                <i>
+                    Pregunta 2: ¿Cuantas octavas tiene este teclado?
+                </i>
+                <p>
+                    Al tocar las notas una octava, y compararlas con otra, 
+                    veras que la unica diferencia en el sonido es que las notas son mas altas en las octavas mas a la derecha.
+                    Si tocas desde la primera tecla blanca de la octava hasta la septima, estaras tocando DO-RE-MI-FA-SOL-LA-SI.
+                </p>
+                <piano :length="25" notes="C1,E1,G1">
+                <i>
+                    Ejercicio: En tu teclado, toca la secuencia de teclas blancas indicada anteriormente.
+                </i>
+                <p>
+                    Las teclas negras constituyen semitonos o medios tonos (la nota media entre la anterior y la siguiente). 
+                    Notarás que solo hay medios tonos entre DO-RE, RE-MI, FA-SOL, SOL-LA, y LA-SI.
+                    Entre MI-FA y entre SI-DO no hay semitonos. Mas adelante se hablará de ello.
+                </p>
+                <piano :length="25">
+                <i>
+                    Ejercicio: Intenta tocar una secuencia de solo notas negras al azar ¿A que suena?
+                </i>
+                <p>
+                    Normalmente, al centro del teclado o cerca de este se encuentra la octava central, 
+                    que es donde se tocan la mayoria de las melodias que se pueden comparar con el tono de vox humana.
+                    En teclados pequeños, puede que se desplace mas hacia la izquierda.
+                </p>
+            </content>
+        </section>
+
+        <section>
+            <h2>Introducción</h2>
+            <content>
+                <p>
+                </p>
+                
+            </content>
+        </section>
+    
+    </main>
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+	<script src="../js/components/piano.js"></script>
+	<script src="../js/app.js"></script>
+	
+</body>
+</html>
