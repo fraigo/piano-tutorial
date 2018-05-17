@@ -11,6 +11,11 @@
         font-size:18px;
         line-height: 24px;
     }
+    blockquote{
+        text-align:center;
+        font-style: italic;
+        margin-top:3px;
+    }
 
     </style>
 </head>
@@ -36,12 +41,9 @@
             <h2>Introducción</h2>
             <content>
                 <p>
-                    El tocar un instrumento musical como el piano puede llegar a parecer bastante dificil. 
-                    Vemos a los maestros de este instrumento tocar de manera natural complejas piezas y sin errores, 
-                    y pensamos cómo podriamos lograr algo semejante nosotros, simples mortales.
-                    Si bien el llegar a dominar este instrumento a ese nivel lleva una enorme cantidad 
-                    de horas de practica diaria, es posible llegar a tocar muy bien dedicando un tiempo razonable 
-                    y solo unas cuantas lecciones escenciales para comenzar a tocar.
+                    El tocar un instrumento musical como el piano puede llegar a parecer bastante difícil. 
+                    Vemos a los maestros de este instrumento tocar de manera natural complejas piezas y sin errores, y pensamos cómo podriamos lograr algo semejante nosotros, simples mortales.
+                    Si bien el llegar a dominar este instrumento a ese nivel lleva una enorme cantidad de horas de práctica diaria, es posible llegar a tocar muy bien dedicando un tiempo razonable y solo unas cuantas lecciones escenciales para comenzar a tocar.
                 </p>
                 <p>
                     En este libro, podras lograr aprender lo suficiente para que en una semana puedas dominar lo escencial para:
@@ -52,9 +54,7 @@
                         <li>Realizar algunos acompañamientos sencillos a tus melodías</li>
                         <li>Leer y tocar melodias desde musica escrita</li>
                     </ul>
-                    Para lograrlo, se necesitará que dediques por lo menos una hora diaria a este curso: 
-                    media hora para adquirir conocimiento y otra media hora para realizar las practicas. 
-                    Si te concentras y dedicas bien tu tiempo, puede que necesites menos de eso.
+                    Para lograrlo, se necesitará que dediques por lo menos una hora diaria a este curso: media hora para adquirir conocimiento y otra media hora para realizar las practicas. Si te concentras y dedicas bien tu tiempo, puede que incluso necesites menos de eso.
                 </p>
                 <p>
                     Este libro esta organizado para que cada dia puedas lograr algo concreto. 
@@ -101,42 +101,39 @@
                 <h3>El teclado</h3>
                 <p>
                     El teclado de un piano está conformado por un patron de teclas blancas y negras que se repiten una o mas veces.
-                    A este patron repetitivo le llamaremos octava, y contiene todas las notas de una escala musical.
-                    Dicho patron contiene siete teclas blancas y 5 teclas negras: un grupo de dos y otro de tres teclas negras.
+                    Dicho patron contiene siete teclas blancas y 5 teclas negras: un grupo con dos y otro con tres teclas negras.
                 </p>
-                <piano :length="36">
-
-                </piano>
-                <i>
-                    Pregunta 1: ¿Cuantas octavas tiene este teclado?
-                </i>
-                <piano :length="25">
-                    
-                </piano>
-                <i>
-                    Pregunta 2: ¿Cuantas octavas tiene este teclado?
-                </i>
+                <piano :length="12"></piano>
                 <p>
-                    Al tocar las notas una octava, y compararlas con otra, 
-                    veras que la unica diferencia en el sonido es que las notas son mas altas en las octavas mas a la derecha.
-                    Si tocas desde la primera tecla blanca de la octava hasta la septima, estaras tocando DO-RE-MI-FA-SOL-LA-SI.
+                    A este patron repetitivo le llamaremos <b>octava</b>, y contiene todas las notas de una escala musical.
+                    Cada piano puede tener desde una hasta varias octavas. Un piano convencional tiene 7 octavas.         
                 </p>
-                <piano :length="13" notes="C1,E1,G1"></piano>
-                <i>
+                <piano :length="24">
+                </piano>
+                <blockquote>
+                    ¿Cuantas octavas tiene este teclado?
+                </blockquote>
+                <p>
+                    Al tocar las notas de una octava, y compararlas con otra, veras que la unica diferencia en el sonido es que las notas son mas altas a medida que se avanza a la derecha. La primera tecla del grupo es DO, y si tocas desde la primera tecla blanca de la octava hasta la septima, estaras tocando DO-RE-MI-FA-SOL-LA-SI.
+                </p>                                                                                                                                                                                                                                                                                                                                           
+                <piano from="F" :length="24" notes="C1,D1,E1,F1,G1,A1,B1" labels=",,,,,,,DO 1,,RE 2,,MI 3,FA 4,,SOL 5,,LA 6,,SI 7" :show-labels="true"></piano>
+                <blockquote>
                     Ejercicio: En tu teclado, toca la secuencia de teclas blancas indicada anteriormente.
-                </i>
+                </blockquote>
                 <p>
-                    Las teclas negras constituyen semitonos o medios tonos (la nota media entre la anterior y la siguiente). 
+                    Las teclas negras constituyen tonos intermedios entre notas principales. 
                     Notarás que solo hay medios tonos entre DO-RE, RE-MI, FA-SOL, SOL-LA, y LA-SI.
+                </p>
+                <piano :length="14" from="B" labels=",DO,o,RE,o,MI,FA,o,SOL,o,LA,o,SI"></piano>
+                <p>
                     Entre MI-FA y entre SI-DO no hay semitonos. Mas adelante se hablará de ello.
                 </p>
-                <piano :length="25" from="F">
-                <i>
-                    Ejercicio: Intenta tocar una secuencia de solo notas negras al azar ¿A que suena?
-                </i>
+                <piano :length="17" from="C" notes="E1,F1,B1,C2" labels=",,,,MI,FA,,,,,,SI,DO"></piano>
+                <blockquote>
+                Ejercicio: Intenta tocar una secuencia de solo notas negras al azar ¿A que suena?
+                </blockquote>
                 <p>
-                    Normalmente, al centro del teclado o cerca de este se encuentra la octava central, 
-                    que es donde se tocan la mayoria de las melodias que se pueden comparar con el tono de vox humana.
+                    Normalmente, al centro del teclado o cerca de este se encuentra la octava central,que es donde se tocan la mayoria de las melodias que se pueden comparar con el tono de voz humana.
                     En teclados pequeños, puede que se desplace mas hacia la izquierda.
                 </p>
             </content>
@@ -153,10 +150,7 @@
     
     </main>
 
-	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
-	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+	<script src="../js/vue.js"></script>
 	<script src="../js/components/piano.js"></script>
 	<script src="../js/app.js"></script>
 	

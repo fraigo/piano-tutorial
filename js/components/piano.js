@@ -1,8 +1,5 @@
 Vue.component("piano",{
     props:{
-        labels:{
-            type:Boolean
-        },
         length:{
             type:Number,
             default:36
@@ -11,11 +8,19 @@ Vue.component("piano",{
             type:String,
             default:''
         },
+        labels:{
+            type:String,
+            default:''
+        },
         from:{
             type:String,
             default:"C"
         },
-        names:{
+        showLabels:{
+            type:Boolean,
+            default:true
+        },
+        showNames:{
             type:Boolean,
             default:false
         }
@@ -26,7 +31,6 @@ Vue.component("piano",{
         this.noteList=[];
         if (this.notes!="") {
             this.noteList=this.notes.split(",");
-            console.log(this.noteList);
         }
         this.keyList=this.keyNames.concat([]);
         var firstPos=this.keyList.indexOf(this.from);
@@ -35,6 +39,11 @@ Vue.component("piano",{
         }
         while (this.keyList.length<this.length){
             this.keyList = this.keyList.concat(this.keyNames.concat(this.keyNames));
+        }
+        this.labelList=[];
+        if (this.labels!="") {
+            this.labelList=this.labels.split(",");
+            console.log(this.labelList)
         }
         this.keys=[];
         var lastWhite=true;
@@ -50,7 +59,8 @@ Vue.component("piano",{
                 keyName:this.keyList[i]+octave,
                 pushed:this.noteList.indexOf(this.keyList[i]+octave)!=-1,
                 octave:octave,
-                white:white
+                white:white,
+                label:this.labelList[i]
             }
             config.style={
                 border:"1px solid #444",
@@ -59,6 +69,7 @@ Vue.component("piano",{
                 display:"inline-block",
                 color:white?'#000':'#FFF',
                 backgroundColor:white?'#FFF':'#000',
+                borderRadius:white?'0px 0px 3px 3px':'0px 0px 5px 5px',
                 zIndex:white?'10':'100',
                 marginLeft:!lastWhite||!white?'-12px':'0px',
                 top:white?"100px":"60px",
@@ -67,29 +78,30 @@ Vue.component("piano",{
                 textAlign:"center"
             }            
             if (config.pushed){
-                config.style.backgroundColor=white?'#FF0':'#DD0'
+                config.style.backgroundColor=white?'#FF8':'#DD0'
             }
             config.labelStyle={
                 position:"relative",
                 bottom:"0px",
                 paddingTop:white?"100px":"60px",
-                fontSize:"8px"
+                fontSize:"10px"
             }
             this.componentStyle={
                 whiteSpace:"nowrap",
                 position:"relative",
+                display:"inline-block",
                 height:"125px"
             }
             this.keys.push(config)
             lastWhite=white;
         }
     },
-    template:`<div :style="componentStyle">
-    <div v-for="key in keys" :style="key.style">
-    <div class="label" :style="key.labelStyle">
-    {{sequences?key.sequence:'&nbsp;'}}
-    {{names?key.keyName:'&nbsp;'}}
-    </div>
-    </div>
-    </div>`
+    template:`<div style="text-align:center"><div :style="componentStyle">
+        <div v-for="key in keys" :style="key.style">
+            <div class="label" :style="key.labelStyle">
+            {{showLabels&&labelList.length?key.label:'&nbsp;'}}
+            {{showNames?key.keyName:'&nbsp;'}}
+            </div>
+        </div>
+    </div></div>`
 })
