@@ -12,6 +12,10 @@ Vue.component("piano",{
             type:String,
             default:''
         },
+        classes:{
+            type:String,
+            default:''
+        },
         from:{
             type:String,
             default:"C"
@@ -23,6 +27,10 @@ Vue.component("piano",{
         showNames:{
             type:Boolean,
             default:false
+        },
+        size:{
+            type:String,
+            default:"14px"
         }
     },
     created:function(){
@@ -43,7 +51,10 @@ Vue.component("piano",{
         this.labelList=[];
         if (this.labels!="") {
             this.labelList=this.labels.split(",");
-            console.log(this.labelList)
+        }
+        this.classList=[];
+        if (this.classes!="") {
+            this.classList=this.classes.split(",");
         }
         this.keys=[];
         var lastWhite=true;
@@ -60,20 +71,21 @@ Vue.component("piano",{
                 pushed:this.noteList.indexOf(this.keyList[i]+octave)!=-1,
                 octave:octave,
                 white:white,
-                label:this.labelList[i]
+                label:this.labelList[i],
+                className:[this.classList[i],white?'white':'black']
             }
             config.style={
                 border:"1px solid #444",
-                width:white?"30px":"20px",
-                height:white?"120px":"80px",
+                width:white?"1.8em":"1.4em",
+                height:white?"8em":"5em",
                 display:"inline-block",
                 color:white?'#000':'#FFF',
                 backgroundColor:white?'#FFF':'#000',
                 borderRadius:white?'0px 0px 3px 3px':'0px 0px 5px 5px',
                 zIndex:white?'10':'100',
-                marginLeft:!lastWhite||!white?'-12px':'0px',
-                top:white?"100px":"60px",
-                marginTop:white?"-100px":"-60px",
+                marginLeft:!lastWhite||!white?'-0.7em':'0px',
+                top:white?"6em":"3em",
+                marginTop:white?"-7em":"-5em",
                 position:"relative",
                 textAlign:"center"
             }            
@@ -83,25 +95,38 @@ Vue.component("piano",{
             config.labelStyle={
                 position:"relative",
                 bottom:"0px",
-                paddingTop:white?"100px":"60px",
-                fontSize:"10px"
+                paddingTop:white?"6em":"3em",
+                textAlign:"center"
             }
             this.componentStyle={
                 whiteSpace:"nowrap",
                 position:"relative",
                 display:"inline-block",
-                height:"125px"
+                height:"9em",
+                fontSize:this.size
             }
             this.keys.push(config)
             lastWhite=white;
         }
     },
+    methods:{
+        getLabel:function(key){
+            var label=[];
+            if (this.showLabels && this.labelList.length && key.label!="" && key.label!=null){
+                label.push(key.label)
+            }
+            if (this.showNames){
+                label.push(key.keyName)
+            }
+            if (label.length==0){
+                return "";
+            }
+            return label.join(" ");
+        }
+    },
     template:`<div style="text-align:center"><div :style="componentStyle">
-        <div v-for="key in keys" :style="key.style">
-            <div class="label" :style="key.labelStyle">
-            {{showLabels&&labelList.length?key.label:'&nbsp;'}}
-            {{showNames?key.keyName:'&nbsp;'}}
-            </div>
+        <div v-for="key in keys" :class="key.className" :style="key.style">
+            <div class="label" :style="key.labelStyle">&nbsp;{{getLabel(key)}}&nbsp;</div>
         </div>
     </div></div>`
 })

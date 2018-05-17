@@ -16,7 +16,23 @@
         font-style: italic;
         margin-top:3px;
     }
+    
+    h2 {
+        border-top: 1px solid #444;
+        padding-top: 20px;
+    }
+    h3 {
+        border-top: 1px solid #ccc;
+        padding-top: 20px;
+    }
 
+    .transp.white {
+        border: 1px solid #CCC !important;
+    }
+    .transp.black {
+        border: 1px solid #CCC !important;
+        background-color: #888 !important;
+    }
     </style>
 </head>
 <body>
@@ -87,7 +103,7 @@
                 <p>Objetivo: conocer el instrumento y ubicar rapidamente las notas del teclado.
                 </p>
             </content>
-            <h3>El Piano</h3>
+            <h3>1.1 Conociendo el Piano</h3>
             <content>
                 <p>
                     El piano es un instrumento relativamente moderno. 
@@ -98,7 +114,7 @@
                     pasando por los instrumentos de cuerda punteada como el clavicordio o el clavecín, 
                     de los cuales heredo la estructura del teclado actual.
                 </p>
-                <h4>El teclado y las octavas</h4>
+                <h4>Organizacion del teclado</h4>
                 <p>
                     El teclado de un piano está conformado por un patron de teclas blancas y negras que se repiten una o mas veces.
                     Dicho patron contiene siete teclas blancas y 5 teclas negras: un grupo con dos y otro con tres teclas negras.
@@ -134,12 +150,108 @@
                 <p>
                     Normalmente, al centro del teclado o cerca de este se encuentra la octava central,que es donde se tocan la mayoria de las melodias en la tonalidad que se compara con el tono de voz humana. En teclados pequeños, puede que se desplace mas hacia la derecha.
                 </p>
-                <piano :length="36" notes="C2,D2,E2,F2,G2,A2,B2"></piano>
-                </content>
+                <piano :length="36" from="C" size="8px" notes="C2,D2,E2,F2,G2,A2,B2"></piano>
+
+
+            </content>
+            <h3>1.2 Ubicando las notas en el piano</h3>
+            <content>
+                <h4>El error que todos cometen</h4>
+                <p>
+                    Uno de los errores más comunes que cometen quienes desean aprender a tocar el piano es <b>etiquetar las teclas</b>, es decir, colocarle etiquetas con los nombres de las notas (o incluso escribirlas directamente en las teclas).
+                </p>
+                <p>
+                    Si deseas aprender a tocar y avanzar mas rapidamente, <b>no debes etiquetar las teclas</b>. Si tu teclado ya está etiquetado, deberas quitar las etiquetas o cubrirlas con etiquetas en blanco (sobre todo si estan escritas con tinta permanente). 
+                </p>
+                <p>
+                    Esto es <b>criticamente importante</b>, ya que no se podrá aprender a ubicar las notas de manera natural si estan etiquetadas. Ademas, piensa que si luego deseas tocar <i>otro piano</i> que no sea el tuyo, <i>ya no tendrás</i> las etiquetas disponibles para ayudarte. Te aseguro que hay un metodo mejor. <b>Nunca mas las necesitarás, y eso ocurrirá hoy</b>.
+                </p>
+                <p>
+                    El metodo que utilizo se le basa en asociacion y reconocimiento visual, es decir, desde hoy ubicarás las notas en el teclado naturalmente por reconocimiento directo, sin ayuda de etiquetas o secuencias. Algunas aspectos claves sobre este metodo son:
+
+                    <ul>
+                        <li>No necesita hacer marcas o etiquetas en el teclado (de hecho, las prohibe)</li>
+                        <li>Las notas se aprenderan en un orden distinto, no en el orden natural (DO-RE-MI-etc)</li>
+                        <li>A medida que se van agregando notas adicionales, se realizan pequeños repasos de las notas aprendidas para reforzar las asociaciónes anteriores</li>
+                        <li>Los resultados son mejores si despues de un tiempo, en el mismo dia, se vuelve a repasar completamente la secuencia de aprendizaje</li>
+                        <li>Se iran agregando ejercicios melodicos para reforzar las asociaciones y a la vez lograr tocar melodias conocidas</li>
+                    </ul>
+                </p>
+
+                <blockquote>Antes de continuar, repite despues de mi: prometo desde este momento que no usare etiquetas en mi piano.</blockquote>
+
+                <h4>DO</h4>
+                <p>
+                    La primera nota que aprenderemos a ubicar sera el DO. Es la nota guia de la escala musical y por tanto la mas importante. La ubicamos en el teclado <b>al principio del grupo de dos teclas negras</b>.
+                </p>
+                <piano length="12" notes="C1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+
+                <p>
+                    Aplicando esta definicion, ahora podemos ubicar todos los DO del teclado, <b>al principio de cada grupo de dos teclas negras</b>. Notese que incluso esa ultima nota de la figura siguiente tambien es un DO, ya que el patron se repite denuevo.
+                </p>
+
+                <piano length="49" size="7px" notes="C1,C2,C3,C4,C5"></piano>
+                <blockquote>
+                    Ejercicio: En tu teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
+                </blockquote>
+
+                <p>
+                    Al tocar el mismo DO en varias octavas diferentes, notaras que el sonido es el mismo, pero más <b>agudo</b> (alta frecuencia) hacia la derecha y más <b>grave</b> (baja frecuencia) hacia la izquierda.
+                </p>
+
+                <h4>FA</h4>
+                <p>
+                    Es el turno del FA. Es la siguiente porque es semejante a la tecla DO: la ubicamos en el teclado <b>al principio del grupo de tres teclas negras</b>.
+                </p>
+                <piano length="12" notes="F1" classes="transp,transp,transp,transp,transp"></piano>
+
+                <p>
+                    Aplicando esta nueva definicion, podemos ubicar todos los FA del teclado, <b>al principio de cada grupo de tres teclas negras</b>. 
+                </p>
+
+                <piano length="49" size="7px" notes="F1,F2,F3,F4"></piano>
+                <blockquote>
+                    Ejercicio: En tu teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
+                </blockquote>
+
+                <p>
+                    Es posible que durante el ejercicio hayas confundido el FA con el DO recien aprendido, que esta al principio del grupo de <b>dos</b> teclas negras. De aqui en adelante recuerda:
+                    <ul>
+                        <li><b>DO</b> al principio del grupo de <b>dos</b> teclas negras (relaciona <b>DO</b>  => <b>DO</b>s negras)</li>
+                        <li><b>FA</b> al principio del grupo de <b>tres</b> teclas negras</li>
+                    </ul>
+                </p>
+                
+                <p>
+                    Ahora el siguiente ejercicio mezclara ambas notas para reconocerlas en conjunto.
+                </p>
+
+                <piano length="49" size="7px" notes="C1,F1,C2,F2,C3,F3,C4,F4,C5"></piano>
+                <blockquote>
+                    Ejercicio: En tu teclado, toca todos las notas <b>DO y FA</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda hasta que lo hagas sin equivocarte. 
+                </blockquote>
+
+                <h4>Repaso</h4>
+                <p>
+                    Ahora es tiempo de repasar DO y FA individualmente para reforzar.
+                </p>
+
+                <piano length="49" size="7px" notes="C1,C2,C3,C4,C5"></piano>
+                <blockquote>
+                    Repaso: En tu teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
+                </blockquote>
+
+                <piano length="49" size="7px" notes="F1,F2,F3,F4"></piano>
+                <blockquote>
+                    Repaso: En tu teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
+                </blockquote>
+
+
+            </content>
         </section>
 
         <section>
-            <h2>Introducción</h2>
+            <h2>Dia 2 : Tu primera melodía</h2>
             <content>
                 <p>
                 </p>
