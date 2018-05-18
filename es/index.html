@@ -4,34 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Piano Tutorial</title>
+    
+    <!-- Page title -->
+    <title>Tutorial de Piano en español </title>
+    <meta name="keywords" content="Piano, Lecciones, Tutorial, Semana, "/>
+    <meta name="description" content="Tutorial de piano - Aprende a tocar piano en una semana"/>
+
+    <!-- Facebook OpenGraph  Social media attributes -->
+    <meta property="og:title" content="Tutorial de Piano en español "/>
+    <meta property="og:description" content="Tutorial de piano - Aprende a tocar piano en una semana"/>
+    <meta property="og:site_name" content="Tutorial de Piano en español "/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://franciscoigor.me/piano/es/"/>
+    <link rel="canonical" href="https://franciscoigor.me/piano/es/" />
+
+    <!-- Facebook OpenGraph  Social media image link url and size (must be http, not https) -->
+    <meta property="og:image" content="http://franciscoigor.me/piano/images/logo.png"/>
+    <meta property="og:image:width" content="512"/>
+    <meta property="og:image:height" content="512"/>
+        
+    <!-- Fav Icon / App Icon -->
+    <link rel="shortcut icon" href="../images/logo.png"/>
+    <link rel="icon" type="image/png" href="../images/logo.png" sizes="256x256"/>
+    <link rel="apple-touch-icon" sizes="../images/logo.png" href="images/icon.png"/>
     <style>
     body, td, input, select {
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size:18px;
+        font-size:20px;
         line-height: 24px;
+        text-align:center;
+    }
+    main{
+        max-width:1200px;
+        display:inline-block;
+    }
+    li{
+        text-align:left;
     }
     blockquote{
         text-align:center;
         font-style: italic;
         margin-top:3px;
     }
-    
+    p {
+        text-align: justify;
+    }    
+    h1, h2, h3, h4{
+        padding-top:15px;        
+    }
+    h1{
+        padding-top:15px;        
+    }
     h2 {
         border-top: 1px solid #444;
-        padding-top: 20px;
+        page-break-before: always;
     }
     h3 {
         border-top: 1px solid #ccc;
-        padding-top: 20px;
     }
-
     .transp.white {
         border: 1px solid #CCC !important;
     }
     .transp.black {
         border: 1px solid #CCC !important;
         background-color: #888 !important;
+    }
+    .piano{
+        font-size:14px !important;
+    }
+    .small > .piano {
+        font-size:7px !important;
+    }
+    .medium > .piano {
+        font-size:8px !important;
+    }
+    .piano{
+        font-size:18px !important;
+    }
+    .small > .piano {
+        font-size:12px !important;
+    }
+    .medium > .piano {
+        font-size:14px !important;
+    }
+    @media (max-width:900px){
+        .piano{
+            font-size:16px !important;
+        }
+        .small > .piano {
+            font-size:10px !important;
+        }
+        .medium > .piano {
+            font-size:12px !important;
+        }
+    }
+    @media (max-width:720px){
+        .piano{
+            font-size:14px !important;
+        }
+        .small > .piano {
+            font-size:6px !important;
+        }
+        .medium > .piano {
+            font-size:7px !important;
+        }
+    }
+    @media (max-width:400px){
+        .piano{
+            font-size:12px !important;
+        }
+        .small > .piano {
+            font-size:5px !important;
+        }
+        .medium > .piano {
+            font-size:6px !important;
+        }
+    }
+    @media print{
+        .piano-container {
+            page-break-inside: avoid;
+        }
     }
     </style>
 </head>
@@ -124,7 +216,7 @@
                     A este patron repetitivo le llamaremos <b>octava</b>, y contiene todas las notas de una escala musical.
                     Cada piano puede tener desde una hasta varias octavas. Un piano convencional tiene 7 octavas.         
                 </p>
-                <piano :length="24">
+                <piano :length="48" class="small">
                 </piano>
                 <blockquote>
                     ¿Cuantas octavas tiene este teclado?
@@ -132,16 +224,21 @@
                 <p>
                     Al tocar las notas de una octava, y compararlas con otra, veras que la unica diferencia en el sonido es que las notas son mas altas a medida que se avanza a la derecha. La primera tecla del grupo es DO, y si tocas desde la primera tecla blanca de la octava hasta la septima, estaras tocando DO-RE-MI-FA-SOL-LA-SI.
                 </p>                                                                                                                                                               
-                <piano from="F" :length="24" notes="C1,D1,E1,F1,G1,A1,B1" labels=",,,,,,,DO,,RE,,MI,FA,,SOL,,LA,,SI" :show-labels="true"></piano>
+                <piano from="F" :length="24" notes="C1,D1,E1,F1,G1,A1,B1" labels=",,,,,,,Do,,Re,,Mi,Fa,,Sol,,La,,Si" :show-labels="true"></piano>
                 <blockquote>
                     Ejercicio: En tu teclado, toca la secuencia de teclas blancas indicada anteriormente.
                 </blockquote>
                 
                 <h4>Las teclas negras</h4>
                 <p>
-                    Las teclas negras constituyen tonos intermedios entre notas principales (blancas). Notarás que no hay medios tonos entre MI-FA y entre SI-DO. Mas adelante se hablará de ello.
+                    Las teclas negras constituyen tonos intermedios entre notas principales (blancas). 
                 </p>
-                <piano :length="17" from="C" notes="E1,F1,B1,C2" labels=",,,,MI,FA,,,,,,SI,DO"></piano>
+                <piano :length="17" from="C" notes="" classes="transp,,transp,,transp,transp,,transp,,transp,,transp,transp,,transp,,transp"></piano> 
+                <p>
+                    Notarás que no hay medios tonos solo en dos partes de la octava. 
+                    Esto nos ayudará mucho a ubicar las notas en el teclado (Mas adelante se hablará sobre el porqué).
+                </p>
+                <piano :length="17" from="C" notes="E1,F1,B1,C2" classes="transp,,transp,,,,,transp,,transp,,,,,transp,,transp" ></piano>
                 <blockquote>
                 Ejercicio: Intenta tocar una secuencia de solo notas negras al azar ¿A que suena?
                 </blockquote>
@@ -150,7 +247,7 @@
                 <p>
                     Normalmente, al centro del teclado o cerca de este se encuentra la octava central,que es donde se tocan la mayoria de las melodias en la tonalidad que se compara con el tono de voz humana. En teclados pequeños, puede que se desplace mas hacia la derecha.
                 </p>
-                <piano :length="36" from="C" size="8px" notes="C2,D2,E2,F2,G2,A2,B2"></piano>
+                <piano :length="36" from="C" class="medium" notes="C2,D2,E2,F2,G2,A2,B2"></piano>
 
 
             </content>
@@ -178,19 +275,19 @@
                     </ul>
                 </p>
 
-                <blockquote>Antes de continuar, repite despues de mi: prometo desde este momento que no usare etiquetas en mi piano.</blockquote>
+                <blockquote>Antes de continuar, repite despues de mi: <b>prometo desde este momento que no usare etiquetas en mi piano</b>.</blockquote>
 
                 <h4>DO</h4>
                 <p>
                     La primera nota que aprenderemos a ubicar sera el DO. Es la nota guia de la escala musical y por tanto la mas importante. La ubicamos en el teclado <b>al principio del grupo de dos teclas negras</b>.
                 </p>
-                <piano length="12" notes="C1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+                <piano :length="12" notes="C1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
 
                 <p>
                     Aplicando esta definicion, ahora podemos ubicar todos los DO del teclado, <b>al principio de cada grupo de dos teclas negras</b>. Notese que incluso esa ultima nota de la figura siguiente tambien es un DO, ya que el patron se repite denuevo.
                 </p>
 
-                <piano length="49" size="7px" notes="C1,C2,C3,C4,C5"></piano>
+                <piano :length="49" class="small" notes="C1,C2,C3,C4,C5"></piano>
                 <blockquote>
                     Ejercicio: En tu teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
                 </blockquote>
@@ -203,13 +300,13 @@
                 <p>
                     Es el turno del FA. Es la siguiente porque es semejante a la tecla DO: la ubicamos en el teclado <b>al principio del grupo de tres teclas negras</b>.
                 </p>
-                <piano length="12" notes="F1" classes="transp,transp,transp,transp,transp"></piano>
+                <piano :length="12" notes="F1" classes="transp,transp,transp,transp,transp"></piano>
 
                 <p>
                     Aplicando esta nueva definicion, podemos ubicar todos los FA del teclado, <b>al principio de cada grupo de tres teclas negras</b>. 
                 </p>
 
-                <piano length="49" size="7px" notes="F1,F2,F3,F4"></piano>
+                <piano :length="49" class="small" notes="F1,F2,F3,F4"></piano>
                 <blockquote>
                     Ejercicio: En tu teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
                 </blockquote>
@@ -226,7 +323,7 @@
                     Ahora el siguiente ejercicio mezclara ambas notas para reconocerlas en conjunto.
                 </p>
 
-                <piano length="49" size="7px" notes="C1,F1,C2,F2,C3,F3,C4,F4,C5"></piano>
+                <piano :length="49" class="small" notes="C1,F1,C2,F2,C3,F3,C4,F4,C5"></piano>
                 <blockquote>
                     Ejercicio: En tu teclado, toca todos las notas <b>DO y FA</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda hasta que lo hagas sin equivocarte. 
                 </blockquote>
@@ -236,21 +333,73 @@
                     Ahora es tiempo de repasar DO y FA individualmente para reforzar.
                 </p>
 
-                <piano length="49" size="7px" notes="C1,C2,C3,C4,C5"></piano>
+                <piano :length="49" class="small" notes="C1,C2,C3,C4,C5"></piano>
                 <blockquote>
                     Repaso: En tu teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
                 </blockquote>
 
-                <piano length="49" size="7px" notes="F1,F2,F3,F4"></piano>
+                <piano :length="49" class="small" notes="F1,F2,F3,F4"></piano>
                 <blockquote>
                     Repaso: En tu teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
                 </blockquote>
 
 
+                <h4>MI</h4>
+                <p>
+                    Ahora pasaremos al MI. Su ubicacion en el teclado es <b>al final</b> del grupo de <b>dos negras</b>.
+                </p>
+                <piano :length="12" notes="E1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+
+                <p>
+                    Ahora, podemos ubicar todos los MI del teclado, <b>al final de cada grupo de dos teclas negras</b>. 
+                </p>
+
+                <piano :length="49" class="small" notes="E1,E2,E3,E4"></piano>
+                <blockquote>
+                    Ejercicio: En tu teclado, toca todos las notas MI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los MI sin equivocarte. 
+                </blockquote>
+
+                <p>
+                    Es posible que en esta parte te confundas con la tecla al final del grupo de tres negras, pero ya pasará.
+                </p>
+                
+                <h4>SI</h4>
+                <p>
+                    Ahora saltamos al SI. Es la siguiente porque es semejante a la tecla FA: la ubicamos en el teclado <b>al final</b> del grupo de <b>tres teclas negras</b>.
+                </p>
+                <piano :length="12" notes="B1" classes="transp,transp,transp,transp,transp"></piano>
+
+                <p>
+                    Como en los otros casos, podemos ubicar todos los SI del teclado, <b>al final de cada grupo de tres teclas negras</b>. 
+                </p>
+
+                <piano :length="49" class="small" notes="B1,B2,B3,B4"></piano>
+                <blockquote>
+                    Ejercicio: En tu teclado, toca todos las notas SI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los SI sin equivocarte. 
+                    Ademas, ten cuidado de no confundirte con el MI que esta al final del grupo de dos negras.
+                </blockquote>
+
+                <p>
+                    Es posible que durante el ejercicio hayas confundido el SI con el MI aprendido en la anterior. De aqui en adelante recuerda:
+                    <ul>
+                        <li><b>MI</b> al <b>final</b> del grupo de <b>dos</b> teclas negras</li>
+                        <li><b>SI</b> al <b>final</b> del grupo de <b>tres</b> teclas negras</li>
+                    </ul>
+                </p>
+                
+                <p>
+                    Ahora el siguiente ejercicio mezclara ambas notas (MI y SI) para reconocerlas en conjunto.
+                </p>
+
+                <piano :length="49" class="small" notes="E1,B1,E2,B2,E3,B3,E4,B4"></piano>
+                <blockquote>
+                    Ejercicio: En tu teclado, toca todos las notas <b>MI y SI</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda hasta que lo hagas sin equivocarte. 
+                </blockquote>
+
             </content>
         </section>
 
-        <section>
+        <section v-if="false">
             <h2>Dia 2 : Tu primera melodía</h2>
             <content>
                 <p>

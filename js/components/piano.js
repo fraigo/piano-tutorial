@@ -29,8 +29,7 @@ Vue.component("piano",{
             default:false
         },
         size:{
-            type:String,
-            default:"14px"
+            type:String
         }
     },
     created:function(){
@@ -83,7 +82,7 @@ Vue.component("piano",{
                 backgroundColor:white?'#FFF':'#000',
                 borderRadius:white?'0px 0px 3px 3px':'0px 0px 5px 5px',
                 zIndex:white?'10':'100',
-                marginLeft:!lastWhite||!white?'-0.7em':'0px',
+                marginLeft:!lastWhite||!white?'-0.75em':'0px',
                 top:white?"6em":"3em",
                 marginTop:white?"-7em":"-5em",
                 position:"relative",
@@ -124,7 +123,7 @@ Vue.component("piano",{
             return label.join(" ");
         }
     },
-    template:`<div style="text-align:center"><div :style="componentStyle">
+    template:`<div class="piano-container" style="text-align:center"><div class="piano" :style="componentStyle">
         <div v-for="key in keys" :class="key.className" :style="key.style">
             <div class="label" :style="key.labelStyle">&nbsp;{{getLabel(key)}}&nbsp;</div>
         </div>
