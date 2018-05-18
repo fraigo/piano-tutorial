@@ -1,3 +1,5 @@
+window.pianoId=100;
+
 Vue.component("piano",{
     props:{
         length:{
@@ -33,6 +35,8 @@ Vue.component("piano",{
         }
     },
     created:function(){
+        window.pianoId++;
+        var keyid=1;
         this.keyNames=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
         this.blackKeys=["A#","C#","D#","F#","G#"];
         this.noteList=[];
@@ -56,6 +60,7 @@ Vue.component("piano",{
             this.classList=this.classes.split(",");
         }
         this.keys=[];
+        this.pianoId="p"+window.pianoId;
         var lastWhite=true;
         var octave=0;
         for(var i=0;i<this.length;i++){
@@ -66,6 +71,7 @@ Vue.component("piano",{
             }
             var config={
                 name:this.keyList[i],
+                id:"k"+window.pianoId*10000+(keyid++),
                 keyName:this.keyList[i]+octave,
                 pushed:this.noteList.indexOf(this.keyList[i]+octave)!=-1,
                 octave:octave,
@@ -121,10 +127,13 @@ Vue.component("piano",{
                 return "";
             }
             return label.join(" ");
+        },
+        keyClick:function(key){
+            this.$emit("click",key);
         }
     },
-    template:`<div class="piano-container" style="text-align:center"><div class="piano" :style="componentStyle">
-        <div v-for="key in keys" :class="key.className" :style="key.style">
+    template:`<div class="piano-container" style="text-align:center"><div :id="pianoId" class="piano" :style="componentStyle">
+        <div v-for="key in keys" :id="key.id" :class="key.className" :style="key.style" @click="keyClick(key)">
             <div class="label" :style="key.labelStyle">&nbsp;{{getLabel(key)}}&nbsp;</div>
         </div>
     </div></div>`

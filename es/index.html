@@ -44,7 +44,8 @@
     blockquote{
         text-align:center;
         font-style: italic;
-        margin-top:3px;
+        margin-top:1px;
+        margin-bottom:25px;
     }
     p {
         text-align: justify;
@@ -71,6 +72,10 @@
     }
     .piano{
         font-size:14px !important;
+        -webkit-user-select: none; /* Safari 3.1+ */
+        -moz-user-select: none; /* Firefox 2+ */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Standard syntax */
     }
     .small > .piano {
         font-size:7px !important;
@@ -226,7 +231,7 @@
                 </p>                                                                                                                                                               
                 <piano from="F" :length="24" notes="C1,D1,E1,F1,G1,A1,B1" labels=",,,,,,,Do,,Re,,Mi,Fa,,Sol,,La,,Si" :show-labels="true"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca la secuencia de teclas blancas indicada anteriormente.
+                    Ejercicio: En el teclado, toca la secuencia de teclas blancas indicada anteriormente.
                 </blockquote>
                 
                 <h4>Las teclas negras</h4>
@@ -281,7 +286,7 @@
                 <p>
                     La primera nota que aprenderemos a ubicar sera el DO. Es la nota guia de la escala musical y por tanto la mas importante. La ubicamos en el teclado <b>al principio del grupo de dos teclas negras</b>.
                 </p>
-                <piano :length="12" notes="C1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+                <piano :length="12" notes="C1" labels="Do" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
 
                 <p>
                     Aplicando esta definicion, ahora podemos ubicar todos los DO del teclado, <b>al principio de cada grupo de dos teclas negras</b>. Notese que incluso esa ultima nota de la figura siguiente tambien es un DO, ya que el patron se repite denuevo.
@@ -289,7 +294,7 @@
 
                 <piano :length="49" class="small" notes="C1,C2,C3,C4,C5"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
+                    Ejercicio: En el teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
                 </blockquote>
 
                 <p>
@@ -300,7 +305,7 @@
                 <p>
                     Es el turno del FA. Es la siguiente porque es semejante a la tecla DO: la ubicamos en el teclado <b>al principio del grupo de tres teclas negras</b>.
                 </p>
-                <piano :length="12" notes="F1" classes="transp,transp,transp,transp,transp"></piano>
+                <piano :length="12" labels=",,,,,Fa" notes="F1" classes="transp,transp,transp,transp,transp"></piano>
 
                 <p>
                     Aplicando esta nueva definicion, podemos ubicar todos los FA del teclado, <b>al principio de cada grupo de tres teclas negras</b>. 
@@ -308,7 +313,7 @@
 
                 <piano :length="49" class="small" notes="F1,F2,F3,F4"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
+                    Ejercicio: En el teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
                 </blockquote>
 
                 <p>
@@ -325,7 +330,7 @@
 
                 <piano :length="49" class="small" notes="C1,F1,C2,F2,C3,F3,C4,F4,C5"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca todos las notas <b>DO y FA</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda hasta que lo hagas sin equivocarte. 
+                    Ejercicio: En el teclado, toca todos las notas <b>DO y FA</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda (FA, DO) hasta que lo hagas sin equivocarte. 
                 </blockquote>
 
                 <h4>Repaso</h4>
@@ -335,12 +340,12 @@
 
                 <piano :length="49" class="small" notes="C1,C2,C3,C4,C5"></piano>
                 <blockquote>
-                    Repaso: En tu teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
+                    Repaso: En el teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
                 </blockquote>
 
                 <piano :length="49" class="small" notes="F1,F2,F3,F4"></piano>
                 <blockquote>
-                    Repaso: En tu teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
+                    Repaso: En el teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
                 </blockquote>
 
 
@@ -348,7 +353,7 @@
                 <p>
                     Ahora pasaremos al MI. Su ubicacion en el teclado es <b>al final</b> del grupo de <b>dos negras</b>.
                 </p>
-                <piano :length="12" notes="E1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+                <piano :length="12" labels=",,,,Mi" notes="E1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
 
                 <p>
                     Ahora, podemos ubicar todos los MI del teclado, <b>al final de cada grupo de dos teclas negras</b>. 
@@ -356,7 +361,7 @@
 
                 <piano :length="49" class="small" notes="E1,E2,E3,E4"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca todos las notas MI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los MI sin equivocarte. 
+                    Ejercicio: En el teclado, toca todos las notas MI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los MI sin equivocarte. 
                 </blockquote>
 
                 <p>
@@ -367,7 +372,7 @@
                 <p>
                     Ahora saltamos al SI. Es la siguiente porque es semejante a la tecla FA: la ubicamos en el teclado <b>al final</b> del grupo de <b>tres teclas negras</b>.
                 </p>
-                <piano :length="12" notes="B1" classes="transp,transp,transp,transp,transp"></piano>
+                <piano :length="12" labels=",,,,,,,,,,,Si" notes="B1" classes="transp,transp,transp,transp,transp"></piano>
 
                 <p>
                     Como en los otros casos, podemos ubicar todos los SI del teclado, <b>al final de cada grupo de tres teclas negras</b>. 
@@ -375,7 +380,7 @@
 
                 <piano :length="49" class="small" notes="B1,B2,B3,B4"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca todos las notas SI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los SI sin equivocarte. 
+                    Ejercicio: En el teclado, toca todos las notas SI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los SI sin equivocarte. 
                     Ademas, ten cuidado de no confundirte con el MI que esta al final del grupo de dos negras.
                 </blockquote>
 
@@ -393,8 +398,157 @@
 
                 <piano :length="49" class="small" notes="E1,B1,E2,B2,E3,B3,E4,B4"></piano>
                 <blockquote>
-                    Ejercicio: En tu teclado, toca todos las notas <b>MI y SI</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda hasta que lo hagas sin equivocarte. 
+                    Ejercicio: En el teclado, toca todos las notas <b>MI y SI</b> que encuentres, como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda (SI, MI) hasta que lo hagas sin equivocarte. 
                 </blockquote>
+
+                <h4>Repaso</h4>
+                <p>
+                    Ahora es tiempo de repasar MI y SI individualmente para reforzar.
+                </p>
+
+                <piano :length="49" class="small" notes="E1,E2,E3,E4"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las notas MI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los MI sin equivocarte. 
+                </blockquote>
+
+                <piano :length="49" class="small" notes="B1,B2,B3,B4"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las notas SI que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los SI sin equivocarte.
+                </blockquote>
+
+                <h4>Repaso de la primera parte</h4>
+                <p>
+                    Ahora es tiempo de recordar las primeras dos notas aprendidas, DO y FA, individualmente para reforzar.
+                </p>
+
+                <piano :length="49" class="small" notes="C1,C2,C3,C4,C5"></piano>
+                <blockquote>
+                    Repaso: En el teclado, toca todos las notas DO que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los DO sin equivocarte.
+                </blockquote>
+
+                <piano :length="49" class="small" notes="F1,F2,F3,F4"></piano>
+                <blockquote>
+                    Repaso: En el teclado, toca todos las notas FA que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los FA sin equivocarte. 
+                </blockquote>
+
+
+                <h4>Repaso completo</h4>
+                <p>
+                    Ahora vamos a juntar las cuatro notas aprendidas, DO-FA MI-SI y haremos un repaso pasando por todas ellas a la vez.
+                </p>
+
+                <piano :length="49" class="small" labels="1,,,,2,3,,,,,,4," notes="C1,E1,F1,B1,C2,E2,F2,B2,C3,E3,F3,B3,C4,E4,F4,B4"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las notas <b>DO, MI, FA y SI</b> que encuentres, secuencialmente como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda (SI, FA, MI, DO) hasta que lo hagas sin equivocarte. 
+                </blockquote>
+
+                <piano :length="49" labels="1,,,,3,2,,,,,,4," class="small" notes="C1,E1,F1,B1,C2,E2,F2,B2,C3,E3,F3,B3,C4,E4,F4,B4"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca la secuencia <b>DO-FA , MI-SI</b> en cada octava,en este orden (como se enumera en las teclas). Repite lo mismo en cada octava de abajo hacia arriba.  
+                </blockquote>
+
+
+                <h4>RE</h4>
+                <p>
+                    Ahora llegamos a las ultimas notas para aprender. La nota RE es muy facil de distinguir, ya que esta ubicada en medio del grupo de dos teclas negras:
+                </p>
+                <piano :length="12" labels=",,Re" notes="D1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+
+                <p>
+                    Facilmente usando esta descripcion, ahora podemos ubicar todos los RE del teclado, <b>en medio de cada grupo de dos teclas negras</b>. Notaras que es facil encontrar el RE (como digo, es <b>RE</b>-fácil)
+                </p>
+
+                <piano :length="49" class="small" notes="D1,D2,D3,D4"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las notas RE que encuentres, como en la figura anterior. Hazlo varias veces hasta que puedas tocar todos los RE sin equivocarte.
+                </blockquote>
+
+                <h4>SOL y LA</h4>
+                <p>
+                    Ya estamos terminando! Solo nos quedan las 2 ultimas notas, que las revisaremos en conjunto. El SOL y LA se encuentran <b>en medio del grupo de tres teclas negras</b>. La primera (a la izquierda) es SOL y la segunda (a la derecha) es LA.
+                </p>
+                <piano :length="12" labels=",,,,,,,Sol,,La" notes="G1,A1" classes="transp,transp,transp,transp,transp"></piano>
+
+                <p>
+                    Ahora podemos ubicar todos los SOL y LA del teclado, <b>en medio de cada grupo de tres teclas negras</b>. Vamos a ubicarlas por separado primeramente. 
+                </p>
+
+                <piano :length="49" class="small" notes="G1,G2,G3,G4"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las notas SOL que encuentres, como en la figura anterior.  Recuerda que se encuentra en medio del grupo de tres teclas negras (la primera de en medio, hacia la izquierda). Hazlo varias veces hasta que puedas tocar todos los SOL sin equivocarte.
+                </blockquote>
+
+                <piano :length="49" class="small" notes="A1,A2,A3,A4" @click="keyClick"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las notas LA que encuentres, como en la figura anterior.  Recuerda que se encuentra en medio del grupo de tres teclas negras (la segunda de en medio, hacia la derecha). Hazlo varias veces hasta que puedas tocar todos los LA sin equivocarte.
+                </blockquote>
+
+                <piano :length="49" class="small" notes="G1,A1,G2,A2,G3,A3,G4,A4" @click="keyClick"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las parejas de notas SOL-LA que encuentres, como en la figura anterior.  Recuerda que se encuentran en medio del grupo de tres teclas negras (SOL primero y LA despues). Hazlo varias veces hasta que puedas tocar todos los SOL-LA sin equivocarte.
+                </blockquote>
+
+                <h4>Repaso</h4>
+
+                <p>Ya estamos casi listos! Hemos visto todas las notas basicas del piano y ahora haremos un breve repaso para refrescar lo aprendido. Primero repasaremos las notas que estan en medio de las teclas negras (RE, SOL y LA), y luego repasaremos lo anterior.</p>
+
+                <piano :length="49" class="small" notes="D1,D2,D3,D4"></piano>
+                <blockquote>
+                    Repaso: En el teclado, toca todos las notas RE que encuentres, como en la figura anterior. Recuerda que está en medio del grupo de dos teclas negras. Hazlo varias veces hasta que puedas tocar todos los RE sin equivocarte.
+                </blockquote>
+                
+                <piano :length="49" class="small" notes="G1,G2,G3,G4"></piano>
+                <blockquote>
+                    Repaso: En el teclado, toca todos las notas SOL que encuentres, como en la figura anterior.  Recuerda que se encuentra en medio del grupo de tres teclas negras (la primera de en medio, hacia la izquierda). Hazlo varias veces hasta que puedas tocar todos los SOL sin equivocarte.
+                </blockquote>
+
+                <piano :length="49" class="small" notes="A1,A2,A3,A4" @click="keyClick"></piano>
+                <blockquote>
+                    Repaso: En el teclado, toca todos las notas LA que encuentres, como en la figura anterior.  Recuerda que se encuentra en medio del grupo de tres teclas negras (la segunda de en medio, hacia la derecha). Hazlo varias veces hasta que puedas tocar todos los LA sin equivocarte.
+                </blockquote>
+
+                <h4>Repaso en conjunto</h4>
+
+                <piano :length="49" class="small" notes="D1,G1,A1,D2,G2,A2,D3,G3,A3,D4,G4,A4" @click="keyClick"></piano>
+                <blockquote>
+                    Ejercicio: En el teclado, toca todos las parejas de notas RE-SOL-LA que encuentres, como en la figura anterior.  Recuerda que se encuentran en medio del grupo de dos y tres teclas negras. Hazlo varias veces hasta que puedas tocar todos los RE-SOL-LA en secuencia sin equivocarte.
+                </blockquote>
+                
+                <h4>Resumen de la segunda parte (notas intermedias)</h4>
+                <p>
+                    Es posible que durante el ejercicio aun necesitas repasar la ubicacion de RE, SOL, y LA. De aqui en adelante recuerda:
+                    <ul>
+                        <li><b>RE</b> sola, <b>en medio</b> del grupo de <b>dos</b> teclas negras</li>
+                        <li><b>SOL y LA</b> ambas <b>en medio</b> del grupo de <b>tres</b> teclas negras:
+                            <ul>
+                                <li><b>SOL</b> es la primera (la de la derecha)</li>
+                                <li><b>LA</b> es la segunda (la de la izquierda)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+
+                <h4>Repaso Final</h4>
+
+                <p>Ahora que tenemos todas las notas, haremos un repaso final, en el orden aprendido. Como ejercicio, por cada nota aprendida, toda todas las apariciones de dicha nota en el teclado antes de avanzar a la siguiente.</p>
+
+                <b>Do : Al principio del grupo de dos teclas negras</b>
+                <piano :length="12" notes="C1" labels="Do" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+
+                <b>Fa : Al principio del grupo de tres teclas negras</b>
+                <piano :length="12" labels=",,,,,Fa" notes="F1" classes="transp,transp,transp,transp,transp"></piano>
+                
+                <b>Mi : Al final del grupo de dos teclas negras</b>
+                <piano :length="12" labels=",,,,Mi" notes="E1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+
+                <b>Si : Al final del grupo de tres teclas negras</b>
+                <piano :length="12" labels=",,,,,,,,,,,Si" notes="B1" classes="transp,transp,transp,transp,transp"></piano>
+                
+                <b>Re : En medio del grupo de dos teclas negras</b>
+                <piano :length="12" labels=",,Re" notes="D1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
+
+                <b>Sol y La : En medio del grupo de tres teclas negras</b>
+                <piano :length="12" labels=",,,,,,,Sol,,La" notes="G1,A1" classes="transp,transp,transp,transp,transp"></piano>
 
             </content>
         </section>

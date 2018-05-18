@@ -4,6 +4,9 @@ Vue.app = new Vue({
     data:{
     },
     methods:{
+      keyClick:function(key){
+        console.log(key);
+      }
     },
     mounted(){
       this.$el.style.display='';
