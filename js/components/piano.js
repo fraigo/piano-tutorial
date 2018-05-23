@@ -22,6 +22,10 @@ Vue.component("piano",{
             type:String,
             default:"C"
         },
+        inline:{
+            type:Boolean,
+            default:false
+        },
         showLabels:{
             type:Boolean,
             default:true
@@ -89,7 +93,7 @@ Vue.component("piano",{
                 borderRadius:white?'0px 0px 3px 3px':'0px 0px 5px 5px',
                 zIndex:white?'10':'100',
                 marginLeft:!lastWhite||!white?'-0.75em':'0px',
-                top:white?"6em":"3em",
+                top:white?"5em":"3em",
                 marginTop:white?"-7em":"-5em",
                 position:"relative",
                 textAlign:"center"
@@ -100,9 +104,10 @@ Vue.component("piano",{
             config.labelStyle={
                 position:"relative",
                 bottom:"0px",
-                paddingTop:white?"6em":"3em",
+                paddingTop:white?"5em":"3em",
                 textAlign:"center"
             }
+            this.keys.push(config)
             this.componentStyle={
                 whiteSpace:"nowrap",
                 position:"relative",
@@ -110,7 +115,12 @@ Vue.component("piano",{
                 height:"9em",
                 fontSize:this.size
             }
-            this.keys.push(config)
+            this.containerStyle={
+                textAlign:"center"
+            }
+            if (this.inline){
+                this.containerStyle["display"]="inline-block";
+            }
             lastWhite=white;
         }
     },
@@ -132,9 +142,9 @@ Vue.component("piano",{
             this.$emit("click",key);
         }
     },
-    template:`<div class="piano-container" style="text-align:center"><div :id="pianoId" class="piano" :style="componentStyle">
+    template:`<div class="piano-container" :style="containerStyle"><div :id="pianoId" class="piano" :style="componentStyle">
         <div v-for="key in keys" :id="key.id" :class="key.className" :style="key.style" @click="keyClick(key)">
-            <div class="label" :style="key.labelStyle">&nbsp;{{getLabel(key)}}&nbsp;</div>
+            <div class="label" :style="key.labelStyle">&nbsp;<span>{{getLabel(key)}}</span>&nbsp;</div>
         </div>
     </div></div>`
 })

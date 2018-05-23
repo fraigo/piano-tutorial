@@ -81,7 +81,7 @@
         font-size:7px !important;
     }
     .medium > .piano {
-        font-size:8px !important;
+        font-size:9px !important;
     }
     .piano{
         font-size:18px !important;
@@ -91,6 +91,12 @@
     }
     .medium > .piano {
         font-size:14px !important;
+    }
+    .small .label > span {
+        font-size:1.2em;
+    }
+    .medium .label > span {
+        font-size:1.2em;
     }
     @media (max-width:900px){
         .piano{
@@ -111,7 +117,7 @@
             font-size:6px !important;
         }
         .medium > .piano {
-            font-size:7px !important;
+            font-size:9px !important;
         }
     }
     @media (max-width:400px){
@@ -216,9 +222,11 @@
                 <h4>Organizacion del teclado</h4>
                 <p>
                     El teclado de un piano está conformado por un patron de teclas blancas y negras que se repiten una o mas veces.
-                    Dicho patron contiene siete teclas blancas y 5 teclas negras: un grupo con dos y otro con tres teclas negras.
+                    Dicho patron contiene siete teclas blancas y 5 teclas negras: un grupo con <b>dos</b> y otro con <b>tres</b> teclas negras.
                 </p>
-                <piano :length="12"></piano>
+                <piano inline from="C" :length="5"></piano>
+                &nbsp;&nbsp;&nbsp;
+                <piano inline from="F" :length="7"></piano>
                 <p>
                     A este patron repetitivo le llamaremos <b>octava</b>, y contiene todas las notas de una escala musical.
                     Cada piano puede tener desde una hasta varias octavas. Un piano convencional tiene 7 octavas.         
@@ -238,16 +246,16 @@
                 
                 <h4>Las teclas negras</h4>
                 <p>
-                    Las teclas negras constituyen tonos intermedios entre notas principales (blancas). 
+                    Las teclas negras constituyen tonos intermedios (medios tonos) entre notas de las teclas blancas.  
                 </p>
                 <piano :length="17" from="C" notes="" classes="transp,,transp,,transp,transp,,transp,,transp,,transp,transp,,transp,,transp"></piano> 
                 <p>
-                    Notarás que no hay medios tonos solo en dos partes de la octava. 
-                    Esto nos ayudará mucho a ubicar las notas en el teclado (Mas adelante se hablará sobre el porqué).
+                    Notarás que <b>no hay</b> medios tonos en partes de la octava.
+                    Esto nos ayudará mucho a ubicar las notas en el teclado (Mas adelante se hablará del porqué).
                 </p>
-                <piano :length="17" from="C" notes="E1,F1,B1,C2" classes="transp,,transp,,,,,transp,,transp,,,,,transp,,transp" ></piano>
+                <piano :length="17" from="C" notes="C1,E1,F1,B1,C2" classes="transp,,transp,,,,,transp,,transp,,,,,transp,,transp" ></piano>
                 <blockquote>
-                Ejercicio: Intenta tocar una secuencia de solo notas negras al azar ¿A que suena?
+                Ejercicio: Intenta tocar una <b>secuencia de notas negras</b> al azar ¿A que suena?
                 </blockquote>
 
                 <h4>Octava central</h4>
@@ -260,7 +268,7 @@
             </content>
             <h3>1.2 Ubicando las notas en el piano</h3>
             <content>
-                <h4>El error que todos cometen</h4>
+                <h4>El error que muchos cometen</h4>
                 <p>
                     Uno de los errores más comunes que cometen quienes desean aprender a tocar el piano es <b>etiquetar las teclas</b>, es decir, colocarle etiquetas con los nombres de las notas (o incluso escribirlas directamente en las teclas).
                 </p>
@@ -271,11 +279,11 @@
                     Esto es <b>criticamente importante</b>, ya que no se podrá aprender a ubicar las notas de manera natural si estan etiquetadas. Ademas, piensa que si luego deseas tocar <i>otro piano</i> que no sea el tuyo, <i>ya no tendrás</i> las etiquetas disponibles para ayudarte. Te aseguro que hay un metodo mejor. <b>Nunca mas las necesitarás, y eso ocurrirá hoy</b>.
                 </p>
                 <p>
-                    El metodo que utilizo se le basa en asociacion y reconocimiento visual, es decir, desde hoy ubicarás las notas en el teclado naturalmente por reconocimiento directo, sin ayuda de etiquetas o secuencias. Algunas aspectos claves sobre este metodo son:
+                    El metodo que utilizo se le basa en asociacion y reconocimiento visual, es decir, desde hoy ubicarás las notas en el teclado naturalmente por <b>reconocimiento directo</b>, sin ayuda de etiquetas o secuencias. Algunas aspectos claves sobre este metodo son:
 
                     <ul>
-                        <li>No necesita hacer marcas o etiquetas en el teclado (de hecho, las prohibe)</li>
-                        <li>Las notas se aprenderan en un orden distinto, no en el orden natural (DO-RE-MI-etc)</li>
+                        <li>No necesita hacer marcas o etiquetas en el teclado (de hecho, es mejor no tenerlas)</li>
+                        <li>Las notas se aprenderán en un orden diferente, no en el orden natural (DO-RE-MI-etc)</li>
                         <li>A medida que se van agregando notas adicionales, se realizan pequeños repasos de las notas aprendidas para reforzar las asociaciónes anteriores</li>
                         <li>Los resultados son mejores si despues de un tiempo, en el mismo dia, se vuelve a repasar completamente la secuencia de aprendizaje</li>
                         <li>Se iran agregando ejercicios melodicos para reforzar las asociaciones y a la vez lograr tocar melodias conocidas</li>
@@ -283,6 +291,8 @@
                 </p>
 
                 <blockquote>Antes de continuar, repite despues de mi: <b>prometo desde este momento que no usare etiquetas en mi piano</b>.</blockquote>
+
+                <check >Lo prometo!</check>
 
                 <h4>DO</h4>
                 <p>
@@ -327,7 +337,7 @@
                 </p>
                 
                 <p>
-                    Ahora el siguiente ejercicio mezclara ambas notas para reconocerlas en conjunto.
+                    Ahora el siguiente ejercicio mezclará ambas notas para reconocerlas en conjunto.
                 </p>
 
                 <piano :length="49" class="small" notes="C1,F1,C2,F2,C3,F3,C4,F4,C5"></piano>
@@ -372,7 +382,7 @@
                 
                 <h4>SI</h4>
                 <p>
-                    Ahora saltamos al SI. Es la siguiente porque es semejante a la tecla FA: la ubicamos en el teclado <b>al final</b> del grupo de <b>tres teclas negras</b>.
+                    Ahora saltamos al SI. Es la siguiente porque es semejante a la tecla MI: la ubicamos en el teclado <b>al final</b> del grupo de <b>tres teclas negras</b>.
                 </p>
                 <piano :length="12" labels=",,,,,,,,,,,Si" notes="B1" classes="transp,transp,transp,transp,transp"></piano>
 
@@ -439,12 +449,12 @@
                     Ahora vamos a juntar las cuatro notas aprendidas, DO-FA MI-SI y haremos un repaso pasando por todas ellas a la vez.
                 </p>
 
-                <piano :length="49" class="small" labels="1,,,,2,3,,,,,,4," notes="C1,E1,F1,B1,C2,E2,F2,B2,C3,E3,F3,B3,C4,E4,F4,B4"></piano>
+                <piano :length="36" class="medium" labels="1,,,,2,3,,,,,,4," notes="C1,E1,F1,B1,C2,E2,F2,B2,C3,E3,F3,B3,C4,E4,F4,B4"></piano>
                 <blockquote>
                     Ejercicio: En el teclado, toca todos las notas <b>DO, MI, FA y SI</b> que encuentres, secuencialmente como en la figura anterior. Hazlo varias veces de izquierda a derecha y luego de derecha a izquierda (SI, FA, MI, DO) hasta que lo hagas sin equivocarte. 
                 </blockquote>
 
-                <piano :length="49" labels="1,,,,3,2,,,,,,4," class="small" notes="C1,E1,F1,B1,C2,E2,F2,B2,C3,E3,F3,B3,C4,E4,F4,B4"></piano>
+                <piano :length="36" labels="1,,,,3,2,,,,,,4," class="medium" notes="C1,E1,F1,B1,C2,E2,F2,B2,C3,E3,F3,B3,C4,E4,F4,B4"></piano>
                 <blockquote>
                     Ejercicio: En el teclado, toca la secuencia <b>DO-FA , MI-SI</b> en cada octava,en este orden (como se enumera en las teclas). Repite lo mismo en cada octava de abajo hacia arriba.  
                 </blockquote>
@@ -452,7 +462,7 @@
 
                 <h4>RE</h4>
                 <p>
-                    Ahora llegamos a las ultimas notas para aprender. La nota RE es muy facil de distinguir, ya que esta ubicada en medio del grupo de dos teclas negras:
+                    Ahora llegamos a las ultimas notas para aprender. La nota RE es muy facil de distinguir, ya que esta ubicada <b>en medio del grupo de dos teclas negras</b>:
                 </p>
                 <piano :length="12" labels=",,Re" notes="D1" classes=",,,,,transp,transp,transp,transp,transp,transp,transp"></piano>
 
@@ -524,11 +534,11 @@
                 <p>
                     Es posible que durante el ejercicio aun necesitas repasar la ubicacion de RE, SOL, y LA. De aqui en adelante recuerda:
                     <ul>
-                        <li><b>RE</b> sola, <b>en medio</b> del grupo de <b>dos</b> teclas negras</li>
+                        <li><b>RE</b> está sola <b>en medio</b> del grupo de <b>dos</b> teclas negras</li>
                         <li><b>SOL y LA</b> ambas <b>en medio</b> del grupo de <b>tres</b> teclas negras:
                             <ul>
-                                <li><b>SOL</b> es la primera (la de la derecha)</li>
-                                <li><b>LA</b> es la segunda (la de la izquierda)</li>
+                                <li><b>SOL</b> es la primera (la de la izquierda)</li>
+                                <li><b>LA</b> es la segunda (la de la derecha)</li>
                             </ul>
                         </li>
                     </ul>
@@ -556,6 +566,45 @@
                 <b>Sol y La : En medio del grupo de tres teclas negras</b>
                 <piano :length="12" labels=",,,,,,,Sol,,La" notes="G1,A1" classes="transp,transp,transp,transp,transp"></piano>
 
+                <h4>Actividad Final: Primera melodía</h4>
+                <p>La siguiente melodía es muy conocida, para tocarla, debes elegir una octava central del teclado como la siguiente. </p>
+                <piano :length="36" from="C" class="medium" notes="C2,D2,E2,F2,G2,A2,B2"></piano>
+
+                <p> 
+                    Solo toca las notas en la seccion indicada. Para los ejercicios de melodia en general:
+                <ul>
+                    <li>Se tocaran notas en una sola octava previamente elegida (la mas central)</li>
+                    <li>A menos que se indique otra cosa, las melodias se tocan con la <b>mano derecha</b></li>
+                    <li>Al practicar, primero hazlo lentamente hasta obtener una velocidad adecuada</li>
+                </ul>
+                </p>
+
+
+                <p>Toca las siguientes notas en secuencia dentro de una octava elegida: </p>
+
+                DO - DO - SOL - SOL - LA - LA - SOL
+
+                <p>Recuerda: DO al principio de las dos teclas negras, SOL y LA entre las tres teclas negras.</p>
+
+                <piano :length="12" from="C" notes="C1,G1,A1"></piano>
+                <blockquote>Toca DO - DO - SOL - SOL - LA - LA - SOL hasta que lo puedas hacer sin equivocarte</blockquote>
+
+                <p>Ahora la segunda parte: </p>
+                FA - FA - MI - MI - RE - RE -DO
+                <p>Recuerda: FA al principio de las tres teclas negras, MI al final de las dos teclas negras, y RE en medio de las dos teclas negras.</p>
+
+                <piano :length="12" from="C" notes="F1,E1,D1,C1"></piano>
+                <blockquote>Toca FA - FA - MI - MI - RE - RE -DO hasta que lo puedas hacer sin equivocarte</blockquote>
+
+
+                <p>Una vez que te familiarices con las dos secuencias, intenta hacerlo de corrido. Que canción es? </p>
+                DO - DO - SOL - SOL - LA - LA - SOL
+                <br>
+                FA - FA - MI - MI - RE - RE -DO
+
+                <p>Excelente! Ya hemos logrado reconocer las notas del teclado y tocar una primera melodía.</p>
+
+
             </content>
         </section>
 
@@ -572,6 +621,7 @@
 
 	<script src="../js/vue.js"></script>
 	<script src="../js/components/piano.js"></script>
+	<script src="../js/components/check.js"></script>
 	<script src="../js/app.js"></script>
 	
 </body>
