@@ -243,6 +243,7 @@
                 <blockquote>
                     Ejercicio: En el teclado, toca la secuencia de teclas blancas indicada anteriormente.
                 </blockquote>
+                <sample sequence="C,D,E,F,G,A,B">Escuchar</sample>
                 
                 <h4>Las teclas negras</h4>
                 <p>
@@ -588,6 +589,7 @@
 
                 <piano :length="12" from="C" notes="C1,G1,A1"></piano>
                 <blockquote>Toca DO - DO - SOL - SOL - LA - LA - SOL hasta que lo puedas hacer sin equivocarte</blockquote>
+                <sample sequence="C,C,G,G,A,A,G">Escuchar</sample>
 
                 <p>Ahora la segunda parte: </p>
                 FA - FA - MI - MI - RE - RE -DO
@@ -595,12 +597,15 @@
 
                 <piano :length="12" from="C" notes="F1,E1,D1,C1"></piano>
                 <blockquote>Toca FA - FA - MI - MI - RE - RE -DO hasta que lo puedas hacer sin equivocarte</blockquote>
+                <sample sequence="F,F,E,E,D,D,C">Escuchar</sample>
 
 
                 <p>Una vez que te familiarices con las dos secuencias, intenta hacerlo de corrido. Que canción es? </p>
                 DO - DO - SOL - SOL - LA - LA - SOL
                 <br>
                 FA - FA - MI - MI - RE - RE -DO
+                <br>
+                <sample sequence="C,C,G,G,A,A,G,,F,F,E,E,D,D,C">Escuchar</sample>
 
                 <p>Excelente! Ya hemos logrado reconocer las notas del teclado y tocar una primera melodía.</p>
 
@@ -616,13 +621,22 @@
                 
             </content>
         </section>
-    
+
+        <audio controls id="sample" style="display:none">
+            <source src="../media/cscale.mp3" type="audio/mpeg">
+        </audio>
+
+
     </main>
 
 	<script src="../js/vue.js"></script>
 	<script src="../js/components/piano.js"></script>
 	<script src="../js/components/check.js"></script>
-	<script src="../js/app.js"></script>
+	<script src="../js/components/sample.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+
+    </script>
 	
 </body>
 </html>
