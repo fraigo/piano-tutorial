@@ -1,4 +1,10 @@
 function playSeq(seq){
+    var audio=document.getElementById("sample");
+    if (audio.lastTimeout){
+        window.clearTimeout(audio.lastTimeout);
+        audio.lastTimeout=null;
+    }
+    var seq=seq.concat([]);
     var note=seq.shift();
     playNote(note,function(){
         if (seq.length>0){
@@ -26,11 +32,15 @@ function playNote(note,callback){
 
 function play(start,duration,callback){
     var audio=document.getElementById("sample");
+    if (audio.lastTimeout){
+        window.clearTimeout(audio.lastTimeout);
+        audio.lastTimeout=null;
+    }
     if (start>=0){
         audio.currentTime=start/1000;
         audio.play();    
     }
-    setTimeout(function(){ 
+    audio.lastTimeout=setTimeout(function(){ 
         if (start>=0){
             audio.pause()
         }
@@ -57,5 +67,5 @@ Vue.component("sample",{
             playSeq(this.notes);
         }
     },
-    template:`<button @click="play" class="sample" style="padding:6px">▶&nbsp;<slot>Play</slot></button>`
+    template:`<button @click="play" class="sample" style="padding:6px;border-radius:5px;user-select:none">▶&nbsp;<slot>Play</slot></button>`
 })
