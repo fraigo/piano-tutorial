@@ -1,0 +1,110 @@
+body, td, input, select {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:20px;
+    line-height: 24px;
+    text-align:center;
+}
+main{
+    max-width:1200px;
+    display:inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+li{
+    text-align:left;
+}
+blockquote{
+    text-align:center;
+    font-style: italic;
+    margin-top:1px;
+    margin-bottom:25px;
+}
+p {
+    text-align: justify;
+}    
+h1, h2, h3, h4{
+    padding-top:15px;        
+}
+h1{
+    padding-top:15px;        
+}
+h2 {
+    border-top: 1px solid #444;
+    page-break-before: always;
+}
+h3 {
+    border-top: 1px solid #ccc;
+}
+.transp.white {
+    border: 1px solid #CCC !important;
+}
+.transp.black {
+    border: 1px solid #CCC !important;
+    background-color: #888 !important;
+}
+.piano{
+    font-size:14px !important;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+.small > .piano {
+    font-size:7px !important;
+}
+.medium > .piano {
+    font-size:9px !important;
+}
+.piano{
+    font-size:18px !important;
+}
+.small > .piano {
+    font-size:12px !important;
+}
+.medium > .piano {
+    font-size:14px !important;
+}
+.small .label > span {
+    font-size:1.2em;
+}
+.medium .label > span {
+    font-size:1.2em;
+}
+@media (max-width:900px){
+    .piano{
+        font-size:16px !important;
+    }
+    .small > .piano {
+        font-size:10px !important;
+    }
+    .medium > .piano {
+        font-size:12px !important;
+    }
+}
+@media (max-width:720px){
+    .piano{
+        font-size:14px !important;
+    }
+    .small > .piano {
+        font-size:6px !important;
+    }
+    .medium > .piano {
+        font-size:9px !important;
+    }
+}
+@media (max-width:400px){
+    .piano{
+        font-size:12px !important;
+    }
+    .small > .piano {
+        font-size:5px !important;
+    }
+    .medium > .piano {
+        font-size:6px !important;
+    }
+}
+@media print{
+    .piano-container {
+        page-break-inside: avoid;
+    }
+}
