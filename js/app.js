@@ -2,7 +2,7 @@
 Vue.app = new Vue({
     el: '#app',
     data:{
-      days:0
+      days:localStorage.getItem("days")?localStorage.getItem("days"):0
     },
     methods:{
       keyClick:function(key){
@@ -10,6 +10,7 @@ Vue.app = new Vue({
       },
       setDay:function(day){
         this.days=Math.max(this.days,day);
+        localStorage.setItem("days",this.days);
         document.location="#day0"+day;
       }
     },

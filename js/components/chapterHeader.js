@@ -16,9 +16,9 @@ Vue.component("chapterHeader",{
     <hr/>
     <a :id="current"></a>
     <table width="100%"><tr>
-    <td width=50 valign="center"><button v-if="prev" @click="goTo(prev)">Prev</button></td>
+    <td width=20 valign="center"><button v-if="prev" @click="goTo(prev)">Prev</button></td>
     <td  valign="center"><h2 style="margin:1px"><slot></slot></h2></td>
-    <td width=50 valign="center" ><button v-if="next" @click="goTo(next)">Next</button></td>
+    <td width=20 valign="center" ><button v-if="next" @click="goTo(next)">Next</button></td>
     </tr></table>
     <hr/>
     </center>`
