@@ -31,7 +31,9 @@
         <h1>Tutorial de piano</h1>
         <h2>Aprende a tocar en una semana</h2>
 
-        <h2>Contenido</h2>
+        <h2 is="chapterHeader" next="#day00">Contenido</h2>
+        <div style="height:20px;"></div>
+        <a id="content" class="anchor"></a>
 
         <ol>
             <li ><a href="#day00">Introducción</a></li>
@@ -45,8 +47,8 @@
         </ol>
 
         <section>
-            <a id="intro"></a>
-            <h2 is="chapterHeader" current="day00" :next="days>=1?'#day01':null">Introducción</h2>
+            <h2 is="chapterHeader" prev="#content" :next="days>=1?'#day01':null">Introducción</h2>
+            <a id="day00" class="anchor"></a>
             <content>
                 <p>
                     El tocar un instrumento musical como el piano puede llegar a parecer bastante difícil. 
@@ -88,13 +90,14 @@
                     Todo depende de la dedicación que desees darle. Te deseo suerte en este camino. Ahora, manos a la obra!
                 </p>
 
-                <button @click="setDay(1)">Comenzar</button>
+                <button v-show="days==0" @click="setDay(1)">Comenzar</button>
         
             </content>
         </section>
 
         <section v-show="days>=1">
-            <h2 is="chapterHeader" prev="#day00" current="day01" :next="days>=2?'#day02':null">Día 1: Manos a la obra</h2>
+            <h2 is="chapterHeader" prev="#day00" :next="days>=2?'#day02':null">Día 1: Manos a la obra</h2>
+            <a id="day01"  clas="anchor"></a>
             <content>
                 <p>Objetivo: conocer el instrumento y ubicar rápidamente las notas del teclado.
                 </p>
@@ -188,7 +191,7 @@
                 <button @click="setDay(1.5)">Lo prometo!</button>
 
                 <section v-show="days>=1.5">
-                <a id="days01.5"></a>
+                <a id="days01.5" clas="anchor"></a>
                 <h4>DO</h4>
                 <p>
                     La primera nota que aprenderemos a ubicar sera el DO. Es la nota guia de la escala musical y por tanto la mas importante. La ubicamos en el teclado <b>al principio del grupo de dos teclas negras</b>.
@@ -536,7 +539,8 @@
         </section>
 
         <section v-show="days>=2">
-            <h2 is="chapterHeader" prev="#day01" current="day02" :next="days>=3?'#day03':null">Día 2 : Tu primera melodía</h2>
+            <h2 is="chapterHeader" prev="#day01" :next="days>=3?'#day03':null">Día 2 : Tu primera melodía</h2>
+            <a id="day02" class="anchor"></a>
             <content>
                 <p>
                 </p>
