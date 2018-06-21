@@ -34,18 +34,19 @@
         <h2>Contenido</h2>
 
         <ol>
-            <li>Introducción</li>
-            <li>Día 1: Manos a la obra</li>
-            <li>Día 2: Tu primera melodía</li>
-            <li>Día 3: Lectura musical básica</li>
-            <li>Día 4: Dos manos</li>
-            <li>Día 5: Acompañamiento musical</li>
-            <li>Día 6: Practica integral</li>
-            <li>Día 7: Tu primera presentación musical</li>
+            <li ><a href="#day00">Introducción</a></li>
+            <li ><a :href="days>=1?'#day01':null">Día 1: Manos a la obra</a></li>
+            <li ><a :href="days>=2?'#day02':null">Día 2: Tu primera melodía</a></li>
+            <li ><a :href="days>=3?'#day03':null">Día 3: Lectura musical básica</a></li>
+            <li ><a :href="days>=4?'#day04':null">Día 4: Dos manos</a></li>
+            <li ><a :href="days>=5?'#day05':null">Día 5: Acompañamiento musical</a></li>
+            <li ><a :href="days>=6?'#day06':null">Día 6: Practica integral</a></li>
+            <li ><a :href="days>=7?'#day07':null">Día 7: Tu primera presentación musical</a></li>
         </ol>
 
         <section>
-            <h2>Introducción</h2>
+            <a id="intro"></a>
+            <h2 is="chapterHeader" current="day00" :next="days>=1?'#day01':null">Introducción</h2>
             <content>
                 <p>
                     El tocar un instrumento musical como el piano puede llegar a parecer bastante difícil. 
@@ -86,12 +87,14 @@
                     o simplemente recurrir a nuevas lecciones que puedes encontrar online. 
                     Todo depende de la dedicación que desees darle. Te deseo suerte en este camino. Ahora, manos a la obra!
                 </p>
+
+                <button @click="setDay(1)">Comenzar</button>
         
             </content>
         </section>
 
-        <section>
-            <h2>Día 1: Manos a la obra</h2>
+        <section v-show="days>=1">
+            <h2 is="chapterHeader" prev="#day00" current="day01" :next="days>=2?'#day02':null">Día 1: Manos a la obra</h2>
             <content>
                 <p>Objetivo: conocer el instrumento y ubicar rápidamente las notas del teclado.
                 </p>
@@ -182,8 +185,10 @@
 
                 <blockquote>Antes de continuar, repite después de mi: <b>prometo desde este momento que no usare etiquetas en mi piano</b>.</blockquote>
 
-                <check >Lo prometo!</check>
+                <button @click="setDay(1.5)">Lo prometo!</button>
 
+                <section v-show="days>=1.5">
+                <a id="days01.5"></a>
                 <h4>DO</h4>
                 <p>
                     La primera nota que aprenderemos a ubicar sera el DO. Es la nota guia de la escala musical y por tanto la mas importante. La ubicamos en el teclado <b>al principio del grupo de dos teclas negras</b>.
@@ -525,12 +530,13 @@
 
                 <p>Excelente! Ya hemos logrado reconocer las notas del teclado y tocar una primera melodía.</p>
 
+            </section>
 
             </content>
         </section>
 
-        <section v-if="false">
-            <h2>Día 2 : Tu primera melodía</h2>
+        <section v-show="days>1">
+            <h2 is="chapterHeader" prev="#day01" current="day02" :next="days>=3?'#day03':null">Día 2 : Tu primera melodía</h2>
             <content>
                 <p>
                 </p>
@@ -546,6 +552,7 @@
     </main>
 
 	<script src="../js/vue.js"></script>
+	<script src="../js/components/chapterHeader.js?v1.00"></script>
 	<script src="../js/components/piano.js?v1.00"></script>
 	<script src="../js/components/check.js?v1.00"></script>
 	<script src="../js/components/sample.js?v1.00"></script>

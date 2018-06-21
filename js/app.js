@@ -2,10 +2,15 @@
 Vue.app = new Vue({
     el: '#app',
     data:{
+      days:0
     },
     methods:{
       keyClick:function(key){
-        console.log(key);
+        
+      },
+      setDay:function(day){
+        this.days=Math.max(this.days,day);
+        document.location="#day0"+day;
       }
     },
     mounted(){
